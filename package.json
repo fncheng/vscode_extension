@@ -1,0 +1,91 @@
+{
+  "name": "px2remvw3",
+  "publisher": "fncheng",
+  "displayName": "px2remvw3",
+  "version": "1.0.0",
+  "license": "MIT",
+  "licenseUrl": "LICENSE",
+  "description": "把px转成rem 或vw，并且能显示rem、vw对应的px值",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fncheng/vscode_extension.git"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "icon": "icon.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:vue",
+    "onLanguage:css",
+    "onLanguage:less",
+    "onLanguage:scss",
+    "onLanguage:sass",
+    "onLanguage:stylus",
+    "onLanguage:tpl",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "config",
+      "properties": {
+        "config.fixedDigits": {
+          "type": "number",
+          "default": 4,
+          "description": "保留几位小数"
+        },
+        "config.baseWidth": {
+          "type": "number",
+          "default": 1920,
+          "description": "设计稿宽度"
+        },
+        "config.baseHeight": {
+          "type": "number",
+          "default": 1080,
+          "description": "设计稿高度"
+        },
+        "config.cursor": {
+          "type": "string",
+          "default": "wait",
+          "description": "指针样式"
+        },
+        "config.vwColor": {
+          "type": "string",
+          "default": "#f00",
+          "description": "vw的字体颜色"
+        },
+        "config.remColor": {
+          "type": "string",
+          "default": "#f00",
+          "description": "rem的字体颜色"
+        },
+        "config.remUnit": {
+          "type": "number",
+          "default": 16,
+          "description": "1rem大小"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "out",
+    "node_modules/typescript/lib",
+    "src"
+  ]
+}
